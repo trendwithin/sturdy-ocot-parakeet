@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise', '~> 4.2'
 gem 'pundit', '~> 1.1'
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
