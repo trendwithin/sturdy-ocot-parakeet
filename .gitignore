@@ -15,3 +15,13 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml
+
+# Ignore Spring files.
+/spring/*.pid
+
+# RVM/OSX Specific Ignores
+/.ruby-version
+**/.DS_Store
