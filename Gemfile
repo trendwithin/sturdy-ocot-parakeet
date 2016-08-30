@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -15,6 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'devise', '~> 4.2'
+gem 'pundit', '~> 1.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -29,10 +31,17 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'terminal-notifier', '~> 1.6', '>= 1.6.3'
+  gem 'terminal-notifier-guard', '~> 1.7'
+  gem 'minitest-rg', '~> 5.2'
+  gem 'guard', '2.13.0'
+  gem 'guard-minitest', '2.4.4'
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'awesome_print', '~> 1.7'
+  gem 'rubocop', '~> 0.42.0'
+  gem 'brakeman', '~> 3.3', '>= 3.3.5'
 end
 
 group :development do
@@ -42,6 +51,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
