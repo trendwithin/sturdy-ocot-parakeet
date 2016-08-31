@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do
+  gem 'rails-controller-testing'
   gem 'byebug', platform: :mri
   gem 'terminal-notifier', '~> 1.6', '>= 1.6.3'
   gem 'terminal-notifier-guard', '~> 1.7'
