@@ -40,12 +40,17 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.1)
     ast (2.3.0)
+    autoprefixer-rails (6.4.0.3)
+      execjs
     awesome_print (1.7.0)
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    bootstrap (4.0.0.alpha3.1)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     brakeman (3.3.5)
     builder (3.2.2)
     byebug (9.0.5)
@@ -237,6 +242,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (~> 1.7)
   better_errors (~> 2.1, >= 2.1.1)
+  bootstrap (~> 4.0.0.alpha3.1)
   brakeman (~> 3.3, >= 3.3.5)
   byebug
   codeclimate-test-reporter
@@ -259,6 +265,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets (~> 3.7)
   terminal-notifier (~> 1.6, >= 1.6.3)
   terminal-notifier-guard (~> 1.7)
   turbolinks (~> 5)
