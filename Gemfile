@@ -20,6 +20,8 @@ gem 'pundit', '~> 1.1'
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'newrelic_rpm', '~> 3.14', '>= 3.14.0.305'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'bootstrap', '~> 4.0.0.alpha3.1'
+gem 'sprockets', '~> 3.7'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
