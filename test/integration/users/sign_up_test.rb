@@ -19,5 +19,16 @@ class SignupTest < ActionDispatch::IntegrationTest
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_equal 'processing_payment', user.role
     assert_equal notice, flash[:notice]
+
+    # Confirmable
+    assert_equal nil, user.confirmed_at
+    mail = ActionMailer::Base.deliveries[0]
+    token = mail.body.decoded.match(/confirmation_token=([^"]+)/)[1]
+    assert_equal true, mail.to_s.include?('From: no-reply@example.com')
+    get "/users/confirmation?confirmation_token=#{token}"
+    notice = 'Your email address has been successfully confirmed.'
+    assert_equal notice, flash[:notice]
+    user.reload
+    assert user.confirmed_at.to_date == Date.today
   end
 end
