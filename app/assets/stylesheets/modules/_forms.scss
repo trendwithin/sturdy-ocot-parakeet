@@ -1,0 +1,23 @@
+form{
+  .field{
+    @extend .form-group;
+    input[type='email'], input[type='password'] {
+      @extend .form-control;
+    }
+  }
+  .actions{
+    input{
+      @extend .btn;
+      @extend .btn-primary;
+      @extend .btn-lg;
+    }
+    input[name='commit']{
+      @extend .btn-primary;
+    }
+  }
+}
+
+.devise{
+  margin-top: 10px;
+  background-color: #CBF7CB;
+}
