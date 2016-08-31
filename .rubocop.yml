@@ -1,0 +1,3 @@
+# Increase the maximum line lenght to 120
+Metrics/LineLength:
+  Max: 120

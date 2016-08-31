@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.2'
 gem 'pundit', '~> 1.1'
 gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'newrelic_rpm', '~> 3.14', '>= 3.14.0.305'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
