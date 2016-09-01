@@ -1,9 +1,19 @@
 require 'test_helper'
 
 class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get show" do
-    get subscriptions_show_url
-    assert_response :success
+
+  def setup
+    @user = users(:mackey)
   end
 
+  test 'should not get new' do
+    get new_subscription_path
+    assert_response :redirect
+  end
+
+  test 'should get new for confirmed user' do
+    sign_in @user
+    get new_subscription_path
+    assert_response :success
+  end
 end
