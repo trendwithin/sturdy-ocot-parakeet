@@ -26,9 +26,22 @@ class SignupTest < ActionDispatch::IntegrationTest
     token = mail.body.decoded.match(/confirmation_token=([^"]+)/)[1]
     assert_equal true, mail.to_s.include?('From: no-reply@example.com')
     get "/users/confirmation?confirmation_token=#{token}"
-    notice = 'Your email address has been successfully confirmed.'
+    notice = 'Your email address has been successfully confirmed. Please log in to with' +
+             ' your new account to complete subscription.'
     assert_equal notice, flash[:notice]
     user.reload
     assert user.confirmed_at.to_date == Date.today
+  end
+
+  test 'Confirmed User Subscribes' do
+    user = User.create!(email: 'confirmed@example.com', password: 'password')
+    confirmation_token = user.confirmation_token
+    get "/users/confirmation?confirmation_token=#{confirmation_token}"
+    follow_redirect!
+    assert_template 'devise/sessions/new'
+    user.reload
+    sign_in user
+    follow_redirect!
+    assert_template 'subscriptions/new'
   end
 end
