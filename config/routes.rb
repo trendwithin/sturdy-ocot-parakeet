@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'subscriptions/show'
 
   root to: 'static_pages#home'
   get '/stripe_test', to: 'static_pages#stripe_test'
 
   resource :subscription
-  
+
   devise_scope :user do
     get "/sign_up" => "devise/registrations#new"
   end
