@@ -49,6 +49,10 @@ group :development, :test do
   gem 'awesome_print', '~> 1.7'
   gem 'rubocop', '~> 0.42.0'
   gem 'brakeman', '~> 3.3', '>= 3.3.5'
+  gem 'vcr', '~> 3.0', '>= 3.0.3'
+  gem 'webmock', '~> 2.0', '>= 2.0.3'
+  gem 'timecop', '~> 0.8.1'
+  gem 'stripe-ruby-mock', '~> 2.3', '>= 2.3.1'
 end
 
 group :development do
