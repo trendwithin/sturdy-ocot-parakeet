@@ -24,6 +24,13 @@ class ActionDispatch::IntegrationTest
   end
 end
 
+def capybara_sign_in user
+  visit new_user_session_path
+  fill_in 'Email', with: user.email
+  fill_in 'Password', with: 'password'
+  click_button 'Log in'
+end
+
 VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = true
   config.cassette_library_dir = 'test/vcr_cassettes'
