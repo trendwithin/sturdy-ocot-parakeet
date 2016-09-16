@@ -4,6 +4,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/rg'
+require "minitest/rails/capybara"
+require 'capybara/poltergeist'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -28,4 +30,25 @@ VCR.configure do |config|
   config.filter_sensitive_data('<STRIPE_API_KEY') { ENV['stripe_api_key'] }
   config.filter_sensitive_data('<STRIPE_PUBLISHABLE_KEY') { ENV['stripe_publishable_key'] }
   config.ignore_hosts 'codeclimate.com'
+end
+
+class Capybara::Rails::TestCase
+  self.use_transactional_fixtures = false
+
+  before do
+    if metadata[:js]
+      Capybara.current_driver = Capybara.javascript_driver
+      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.start
+    end
+  end
+
+  after do
+    if metadata[:js]
+      DatabaseCleaner.clean
+    end
+
+    Capybara.reset_sessions!
+    Capybara.current_driver = Capybara.default_driver
+  end
 end
