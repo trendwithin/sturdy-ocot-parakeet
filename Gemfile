@@ -49,6 +49,20 @@ group :development, :test do
   gem 'awesome_print', '~> 1.7'
   gem 'rubocop', '~> 0.42.0'
   gem 'brakeman', '~> 3.3', '>= 3.3.5'
+  gem 'vcr', '~> 3.0', '>= 3.0.3'
+  gem 'webmock', '~> 2.0', '>= 2.0.3'
+  gem 'timecop', '~> 0.8.1'
+  gem 'stripe-ruby-mock', '~> 2.3', '>= 2.3.1'
+  gem 'fake_stripe', '~> 0.0.10.6'
+  gem 'minitest-rails-capybara', '~> 3.0'
+  gem 'sinatra', '2.0.0.beta2'
+  gem 'poltergeist', '~> 1.10'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
 end
 
 group :development do
