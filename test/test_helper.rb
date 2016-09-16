@@ -7,6 +7,7 @@ require 'minitest/rg'
 require "minitest/rails/capybara"
 require 'capybara/poltergeist'
 
+Capybara.javascript_driver = :poltergeist
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
@@ -33,7 +34,7 @@ VCR.configure do |config|
 end
 
 class Capybara::Rails::TestCase
-  self.use_transactional_fixtures = false
+  self.use_transactional_tests = false
 
   before do
     if metadata[:js]
