@@ -2,6 +2,7 @@ require "test_helper"
 
 feature "DeclinedCreditCard" do
   before :each do
+    FakeStripe.stub_stripe
     @user = User.create(email: 'test@example.com', password: 'password')
     @user.confirm
     capybara_sign_in @user

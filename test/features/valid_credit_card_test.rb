@@ -2,7 +2,7 @@ require "test_helper"
 
 feature "User Inputs Valid Credit Card" do
   scenario "Stripe Accepts Card", js: true do
-    val = FakeStripe.stub_stripe
+    FakeStripe.stub_stripe
     visit root_path
     page.must_have_content "Subscribe"
     click_link "Subscribe"
