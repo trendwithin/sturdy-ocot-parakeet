@@ -5,12 +5,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    customer = if current_user.stripe_id?
-                 Stripe::Customer.retrieve(current_user.stripe_id)
-               else
-                 Stripe::Customer.create(email: current_user.email)
-               end
-
+    customer = current_user.retrieve_or_create_stripe_customer
     subscription = customer.subscriptions.create(
       source: params[:stripeToken],
       plan: 'monthly'
